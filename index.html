@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SSLService  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="SSLService  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          SSLService Docs
+        </a>
+         (97% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">SSLService Reference</a>
+      <img class="carat" src="img/carat.png" />
+      SSLService  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SSLService.html">SSLService</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SSLService.html#/s:10SSLServiceAAC22SSLReadWriteDispatcherV">– SSLReadWriteDispatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SSLService/Configuration.html">– Configuration</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            
+            <p align="center">
+    <a href="https://www.kituranext.org/packages.html#all">
+    <img src="https://img.shields.io/badge/docs-kitura-1FBCE4.svg" alt="APIDoc">
+    </a>
+    <a href="https://travis-ci.org/Kitura-Next/BlueSSLService">
+    <img src="https://travis-ci.org/Kitura-Next/BlueSSLService.svg?branch=master" alt="Build Status - Master">
+    </a>
+    <img src="https://img.shields.io/badge/os-macOS-green.svg?style=flat" alt="macOS">
+    <img src="https://img.shields.io/badge/os-iOS-green.svg?style=flat" alt="iOS">
+    <img src="https://img.shields.io/badge/os-linux-green.svg?style=flat" alt="Linux">
+    <img src="https://img.shields.io/badge/license-Apache2-blue.svg?style=flat" alt="Apache 2">
+    <a href="http://swift-at-ibm-slack.mybluemix.net/">
+    <img src="http://swift-at-ibm-slack.mybluemix.net/badge.svg" alt="Slack Status">
+    </a>
+</p>
+<h1 id='bluesslservice' class='heading'>BlueSSLService</h1>
+
+<p>SSL/TLS Add-in framework for <a href="https://github.com/Kitura-Next/BlueSocket.git">BlueSocket</a> in Swift using the Swift Package Manager. Works on supported Apple platforms (using Secure Transport) and on Linux (using OpenSSL).</p>
+<h2 id='prerequisites' class='heading'>Prerequisites</h2>
+<h3 id='swift' class='heading'>Swift</h3>
+
+<ul>
+<li>Swift Open Source <code>swift-4.0.0-RELEASE</code> toolchain (<strong>Minimum REQUIRED for latest release</strong>)</li>
+<li>Swift Open Source <code>swift-4.2-RELEASE</code> toolchain (<strong>Recommended</strong>)</li>
+<li>Swift toolchain included in <em>Xcode Version 10.0 (10A255) or higher</em>.</li>
+</ul>
+<h3 id='macos' class='heading'>macOS</h3>
+
+<ul>
+<li>macOS 10.11.6 (<em>El Capitan</em>) or higher.</li>
+<li>Xcode Version 9.0 (9A325) or higher using one of the above toolchains.</li>
+<li>Xcode Version 10.0 (10A255) or higher using the included toolchain (<em>Recommended</em>).</li>
+<li>Secure Transport is provided by macOS.</li>
+</ul>
+<h3 id='ios' class='heading'>iOS</h3>
+
+<ul>
+<li>iOS 10.0 or higher</li>
+<li>Xcode Version 9.0 (9A325) or higher using one of the above toolchains.</li>
+<li>Xcode Version 10.0 (10A255) or higher using the included toolchain (<em>Recommended</em>).</li>
+<li>Secure Transport is provided by iOS.</li>
+</ul>
+<h3 id='linux' class='heading'>Linux</h3>
+
+<ul>
+<li>Ubuntu 16.04 (or 16.10 but only tested on 16.04) and 18.04.</li>
+<li>One of the Swift Open Source toolchain listed above.</li>
+<li>OpenSSL is provided by the distribution.  <strong>Note:</strong> 1.0.x, 1.1.x and later releases of OpenSSL are supported.</li>
+<li>The appropriate <strong>libssl-dev</strong> package is required to be installed when building.</li>
+</ul>
+<h3 id='other-platforms' class='heading'>Other Platforms</h3>
+
+<ul>
+<li><strong>BlueSSLService</strong> is <strong>NOT</strong> supported on <em>watchOS</em> since POSIX/BSD/Darwin sockets are not supported on the actual device although they are supported in the simulator.</li>
+<li><strong>BlueSSLService</strong> should work on <em>tvOS</em> but has <strong>NOT</strong> been tested.</li>
+</ul>
+
+<p><em>Note:</em> See <code>Package.swift</code> for details.</p>
+<h2 id='build' class='heading'>Build</h2>
+
+<p>To build <code><a href="Classes/SSLService.html">SSLService</a></code> from the command line:</p>
+<pre class="highlight plaintext"><code>% cd &lt;path-to-clone&gt;
+% swift build
+</code></pre>
+<h2 id='testing' class='heading'>Testing</h2>
+
+<p>To run the supplied unit tests for <strong>SSLService</strong> from the command line:</p>
+<pre class="highlight plaintext"><code>% cd &lt;path-to-clone&gt;
+% swift build
+% swift test
+</code></pre>
+<h2 id='using-bluesslservice' class='heading'>Using BlueSSLService</h2>
+<h3 id='before-starting' class='heading'>Before starting</h3>
+
+<p>The first you need to do is import both the <code>Socket</code> and <code><a href="Classes/SSLService.html">SSLService</a></code> frameworks.  This is done by the following:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Socket</span>
+<span class="kd">import</span> <span class="kt">SSLService</span>
+</code></pre>
+<h3 id='creating-the-configuration' class='heading'>Creating the Configuration</h3>
+
+<p>Both clients and server require at a minimum the following configuration items:</p>
+
+<ul>
+<li>CA Certficate (either <code>caCertificateFile</code> or <code>caCertificateDirPath</code>)</li>
+<li>Application certificate (<code>certificateFilePath</code>)</li>
+<li>Private Key file (<code>keyFilePath</code>)</li>
+</ul>
+
+<p><strong>or</strong></p>
+
+<ul>
+<li>Certificate Chain File (<code>chainFilePath</code>)</li>
+</ul>
+
+<p><strong>or</strong>, if using <code>self-signed</code> certificates:</p>
+
+<ul>
+<li>Application certificate (<code>certificateFilePath</code>)</li>
+<li>Private Key file (<code>keyFilePath</code>)</li>
+</ul>
+
+<p><strong>or</strong>, if running on Linux (for now),</p>
+
+<ul>
+<li>A string containing a <em>PEM formatted</em> certificate</li>
+</ul>
+
+<p><strong>or</strong>, if running on macOS:</p>
+
+<ul>
+<li>Certificate Chain File (<code>chainFilePath</code>) in <strong>PKCS12</strong> format</li>
+</ul>
+
+<p><strong>or</strong>,</p>
+
+<ul>
+<li>No certificate at all.</li>
+</ul>
+
+<p><strong>BlueSSLService</strong> provides five ways to create a <code>Configuration</code> supporting the scenarios above.  Only the <strong>last version is supported on Apple platforms.</strong>  On Linux, <strong>ALL</strong> versions are supported.  This is due to the limits imposed on the current implementation of <em>Apple Secure Transport</em>.</p>
+
+<ul>
+<li><code>init()</code> - This API allows for the creation of <em>default</em> configuration.  This is equivalent to calling the next initializer without changing any parameters.</li>
+<li><code>init(withCipherSuite cipherSuite: String? = nil, clientAllowsSelfSignedCertificates: Bool = true)</code> - This API allows for the creation of configuration that does not contain a backing certificate or certificate chain.  You can optionally provide a <em>cipherSuite</em> and decide whether to allow, when in client mode, use of <em>self-signed certificates</em> by the server.</li>
+<li><code>init(withCACertificatePath caCertificateFilePath: String?, usingCertificateFile certificateFilePath: String?, withKeyFile keyFilePath: String? = nil, usingSelfSignedCerts selfSigned: Bool = true, cipherSuite: String? = nil)</code> - This API allows you to create a configuration using a self contained <code>Certificate Authority (CA)</code> file. The second parameter is the path to the <code>Certificate</code> file to be used by application to establish the connection.  The next parameter is the path to the <code>Private Key</code> file used by application corresponding to the <code>Public Key</code> in the <code>Certificate</code>. If you&rsquo;re using <code>self-signed certificates</code>, set the last parameter to true.</li>
+<li><code>init(withCACertificateDirectory caCertificateDirPath: String?, usingCertificateFile certificateFilePath: String?, withKeyFile keyFilePath: String? = nil, usingSelfSignedCerts selfSigned: Bool = true, cipherSuite: String? = nil)</code> - This API allows you to create a configuration using a directory of <code>Certificate Authority (CA)</code> files. These <code>CA</code> certificates <strong>must</strong> be hashed using the <code>Certificate Tool</code> provided by <code>OpenSSL</code>. The following parameters are identical to the previous API.</li>
+<li><code>init(withPEMCertificateString certificateString: String, usingSelfSignedCerts selfSigned: Bool = true, cipherSuite: String? = nil)</code> - This API used when supplying a PEM formatted certificate presented as a <em>String</em>. <strong>NOTE: At present, this API is only available on Linux.</strong></li>
+<li><code>init(withChainFilePath chainFilePath: String? = nil, withPassword password: String? = nil, usingSelfSignedCerts selfSigned: Bool = true, clientAllowsSelfSignedCertificates: Bool = false, cipherSuite: String? = nil)</code> - This API allows you to create a configuration using a single <code>Certificate Chain File</code> (see note 2 below). Add an optional password (if required) using the third parameter. Set the third parameter to true if the certificates you are using are <code>self-signed</code>, otherwise set it to false. If configuring a client and you want that client to be able to connect to servers using <code>self-signed</code> certificates, set the fourth parameter to true.</li>
+</ul>
+
+<p><em>Note 1:</em> All <code>Certificate</code> and <code>Private Key</code> files must be <code>PEM</code> format. If supplying a certificate via a <code>String</code>, it must be PEM formatted. </p>
+
+<p><em>Note 2:</em> If using a certificate chain file, the certificates must be in <code>PEM</code> format and must be sorted starting with the subject&rsquo;s certificate (actual client or server certificate), followed by intermediate <code>CA</code> certificates if applicable, and ending at the highest level (root) <code>CA</code>.</p>
+
+<p><em>Note 3:</em> For the first two versions of the API, if your <code>Private key</code> is included in your certificate file, you can omit this parameter and the API will use the same file name as specified for the certificate file.</p>
+
+<p><em>Note 4:</em> If you desire to customize the cipher suite used, you can do so by specifying the <code>cipherSuite</code> parameter when using one of the above initializers.  If not specified, the default value is set to <code>DEFAULT</code> on Linux. On macOS, setting of this parameter is currently not supported and attempting to set it will result in unpredictable results.  See the example below.</p>
+
+<p><em>Note 5:</em> If you&rsquo;re running on macOS, you must use the last form of <code>init</code> for the <code>Configuration</code> and provide a certificate chain file in <code>PKCS12</code> format, supplying a <code>password</code> if needed.</p>
+<h4 id='example' class='heading'>Example</h4>
+
+<p>The following illustrates creating a configuration (on <em>Linux</em>) using the second form of the API above using a self-signed certificate file as the key file and not supplying a certificate chain file.  It also illustrates setting the cipher suite to <code>ALL</code> from the default:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SSLService</span>
+
+<span class="o">...</span>
+
+<span class="k">let</span> <span class="nv">myCertPath</span> <span class="o">=</span> <span class="s">"/opt/myApp/config/myCertificate.pem"</span>
+<span class="k">let</span> <span class="nv">myKeyPath</span> <span class="o">=</span> <span class="s">"/opt/myApp/config/myKeyFile.pem"</span>
+
+<span class="k">let</span> <span class="nv">myConfig</span> <span class="o">=</span> <span class="kt">SSLService</span><span class="o">.</span><span class="kt">Configuration</span><span class="p">(</span><span class="nv">withCACertificateDirectory</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">usingCertificateFile</span><span class="p">:</span> <span class="n">myCertPath</span><span class="p">,</span> <span class="nv">withKeyFile</span><span class="p">:</span> <span class="n">myKeyFile</span><span class="p">)</span>
+
+<span class="n">myConfig</span><span class="o">.</span><span class="n">cipherSuite</span> <span class="o">=</span> <span class="s">"ALL"</span>
+
+<span class="o">...</span>
+
+</code></pre>
+
+<p><em>Note:</em> This example takes advantage of the <code>default</code> parameters available on the <code>SSLService.Configuration.init</code> function. Also, changing of the <code>cipher suite</code> on <em>macOS</em> is currently not supported.</p>
+<h3 id='creating-and-using-the-sslservice' class='heading'>Creating and using the SSLService</h3>
+
+<p>The following API is used to create the <code><a href="Classes/SSLService.html">SSLService</a></code>:</p>
+
+<ul>
+<li><code>init?(usingConfiguration config: Configuration) throws</code> - This will create an instance of the <code><a href="Classes/SSLService.html">SSLService</a></code> using a previously created <code>Configuration</code>.</li>
+</ul>
+
+<p>Once the <code><a href="Classes/SSLService.html">SSLService</a></code> is created, it can applied to a previously created <code>Socket</code> instance that&rsquo;s just been created. This needs to be done <strong>before</strong> using the <code>Socket</code>. The following code snippet illustrates how to do this (again using <em>Linux</em>).  <em>Note: Exception handling omitted for brevity.</em></p>
+<pre class="highlight swift"><code>
+<span class="kd">import</span> <span class="kt">Socket</span>
+<span class="kd">import</span> <span class="kt">SSLService</span>
+
+<span class="o">...</span>
+
+<span class="c1">// Create the configuration...</span>
+<span class="k">let</span> <span class="nv">myCertPath</span> <span class="o">=</span> <span class="s">"/opt/myApp/config/myCertificate.pem"</span>
+<span class="k">let</span> <span class="nv">myKeyPath</span> <span class="o">=</span> <span class="s">"/opt/myApp/config/myKeyFile.pem"</span>
+
+<span class="k">let</span> <span class="nv">myConfig</span> <span class="o">=</span> <span class="kt">SSLService</span><span class="o">.</span><span class="kt">Configuration</span><span class="p">(</span><span class="nv">withCACertificateDirectory</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">usingCertificateFile</span><span class="p">:</span> <span class="n">myCertPath</span><span class="p">,</span> <span class="nv">withKeyFile</span><span class="p">:</span> <span class="n">myKeyFile</span><span class="p">)</span>
+
+<span class="c1">// Create the socket...</span>
+<span class="k">var</span> <span class="nv">socket</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">Socket</span><span class="o">.</span><span class="nf">create</span><span class="p">()</span>
+<span class="k">guard</span> <span class="k">let</span> <span class="nv">socket</span> <span class="o">=</span> <span class="n">socket</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nf">fatalError</span><span class="p">(</span><span class="s">"Could not create socket."</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// Create and attach the SSLService to the socket...</span>
+<span class="c1">//  - Note: if you're going to be using the same </span>
+<span class="c1">//          configuration over and over, it'd be </span>
+<span class="c1">//          better to create it in the beginning </span>
+<span class="c1">//          as `let` constant.</span>
+<span class="n">socket</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">SSLService</span><span class="p">(</span><span class="nv">usingConfiguration</span><span class="p">:</span> <span class="n">myConfig</span><span class="p">)</span>
+
+<span class="c1">// Start listening...</span>
+<span class="k">try</span> <span class="n">socket</span><span class="o">.</span><span class="nf">listen</span><span class="p">(</span><span class="nv">on</span><span class="p">:</span> <span class="mi">1337</span><span class="p">)</span>
+
+</code></pre>
+
+<p>The example above creates a <code>SSL server</code> socket. Replacing the <code>socket.listen</code> function with a <code>socket.connect</code> would result in an <code>SSL client</code> being created as illustrated below:</p>
+<pre class="highlight plaintext"><code>// Connect to the server...
+try socket.connect(to: "someplace.org", port: 1337)
+</code></pre>
+
+<p><code><a href="Classes/SSLService.html">SSLService</a></code> handles all the negotiation and setup for the secure transfer of data. The determining factor for whether or not a <code>Socket</code> is setup as a server or client <code>Socket</code> is API which is used to initiate a connection. <code>listen()</code> will cause the <code>Socket</code> to be setup as a server socket.  Calling <code>connect()</code> results a client setup.</p>
+<h3 id='extending-connection-verification' class='heading'>Extending Connection Verification</h3>
+
+<p><code><a href="Classes/SSLService.html">SSLService</a></code> provides a callback mechanism should you need to specify <strong>additional</strong> verification logic. After creating the instance of <code><a href="Classes/SSLService.html">SSLService</a></code>, you can set the instance variable <code>verifyCallback</code>.  This instance variable has the following signature:</p>
+<pre class="highlight plaintext"><code>public var verifyCallback: ((_ service: SSLService) -&gt; (Bool, String?))? = nil
+</code></pre>
+
+<p>Setting this callback is not required. It defaults to <code>nil</code> unless set.  The first parameter passed to your callback is the instance of <code><a href="Classes/SSLService.html">SSLService</a></code> that has this callback.  This will allow you to access the public members of the <code><a href="Classes/SSLService.html">SSLService</a></code> instance in order to do additional verification.  Upon completion, your callback should return a tuple.  The first value is a <code>Bool</code> indicating the sucess or failure of the routine.  The second value is an <code>optional String</code> value used to provide a description in the case where verification failed. In the event of callback failure, an <code>exception</code> will be thrown by the internal verification function.  <strong>Important Note:</strong> To effectively use this callback requires knowledge of the platforms underlying secure transport service, <code>Apple Secure Transport</code> on <code>supported Apple platforms</code> and <code>OpenSSL</code> on <code>Linux</code>.</p>
+<h3 id='skipping-connection-verification' class='heading'>Skipping Connection Verification</h3>
+
+<p>If desired, <code><a href="Classes/SSLService.html">SSLService</a></code> can <em>skip</em> the connection verification.  To accomplish this, set the property <code>skipVerification</code> to <code>true</code> after creating the <code><a href="Classes/SSLService.html">SSLService</a></code> instance.  However, if the <code>verifyCallback</code> property (described above) is set, that callback will be called regardless of this setting. The default for property is false.  It is <strong>NOT</strong> recommended that you skip the connection verification in a <code>production</code> environment unless you are providing verification via the <code>verificationCallback</code>.</p>
+<h2 id='community' class='heading'>Community</h2>
+
+<p>We love to talk server-side Swift and Kitura. Join our <a href="http://swift-at-ibm-slack.mybluemix.net/">Slack</a> to meet the team!</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>This library is licensed under Apache 2.0. Full license text is available in <a href="https://github.com/Kitura-Next/BlueSSLService/blob/master/LICENSE">LICENSE</a>.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-12-10)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
